@@ -560,14 +560,17 @@ footer hr.separator {
 }
 
 .ajax-icon {
-  width: 190px;
-  height: 30px;
+  display: inline-block;
+  width: 5.5em;
+  height: 1.35em;
   background-image: url("../media/ajax-dark.png");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
+  background-position: left center;
+  vertical-align: middle;
 }
 
-.light .ajax-icon {
+body.theme-light .ajax-icon {
   background-image: url("../media/ajax-light.png");
 }
 
@@ -786,6 +789,7 @@ footer hr.separator {
     color 0.2s,
     background 0.2s,
     border-color 0.2s;
+  cursor: alias;
 }
 
 .project-title-icon i {

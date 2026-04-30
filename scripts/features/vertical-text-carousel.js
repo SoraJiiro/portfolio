@@ -41,7 +41,8 @@ export function setupVerticalTextCarousel(rootId, items) {
 
   const getItemHeight = () => {
     const measuredHeight = firstItem.getBoundingClientRect().height;
-    return measuredHeight > 0 ? measuredHeight : 20;
+    if (measuredHeight > 0) return measuredHeight;
+    return firstItem.offsetHeight > 0 ? firstItem.offsetHeight : 20;
   };
 
   const moveToIndex = (index, animated) => {
@@ -125,6 +126,11 @@ export function setupVerticalTextCarousel(rootId, items) {
   });
 
   window.addEventListener(REBOOT_RESTORED_EVENT, () => {
-    restartOnNextFrame();
+    // Double sinon bug :o
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        restartFromCurrentIndex();
+      });
+    });
   });
 }

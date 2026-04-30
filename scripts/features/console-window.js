@@ -251,10 +251,24 @@ export function setupConsoleWindow() {
     } catch {}
   }
 
+  function focusConsoleInput() {
+    try {
+      const commandInput =
+        consoleIframe.contentDocument?.querySelector(".cmd-input");
+      if (commandInput) {
+        commandInput.focus();
+        return;
+      }
+    } catch {}
+    consoleIframe.focus();
+  }
+
   function openConsoleWindow() {
     ensureDefaultWindowBounds();
 
-    if (!state.iframeLoaded) {
+    const isFirstLoad = !state.iframeLoaded;
+
+    if (isFirstLoad) {
       consoleIframe.src = CONSOLE_IFRAME_URL;
       state.iframeLoaded = true;
     }
@@ -265,13 +279,17 @@ export function setupConsoleWindow() {
     applyWindowStateClasses();
     applyWindowBounds();
 
-    const commandInput = document.querySelector(".cmd-input");
-    if (commandInput) {
-      commandInput.focus();
-      return;
+    if (isFirstLoad) {
+      consoleIframe.addEventListener(
+        "load",
+        () => {
+          focusConsoleInput();
+        },
+        { once: true },
+      );
+    } else {
+      focusConsoleInput();
     }
-
-    consoleIframe.focus();
   }
 
   function closeConsoleWindow(options = {}) {

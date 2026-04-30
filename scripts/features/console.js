@@ -428,22 +428,6 @@ function getRandomRemovableElement(targetDocument = getRmTargetDocument()) {
   return candidates[randomIndex];
 }
 
-function getWipeSequence(targetDocument) {
-  const candidates = getRemovableCandidates(targetDocument);
-
-  const shuffledCandidates = [...candidates];
-
-  for (let index = shuffledCandidates.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [shuffledCandidates[index], shuffledCandidates[swapIndex]] = [
-      shuffledCandidates[swapIndex],
-      shuffledCandidates[index],
-    ];
-  }
-
-  return shuffledCandidates;
-}
-
 function dispatchRebootRestoredEvent(targetDocument) {
   const targetWindow = targetDocument?.defaultView || window;
 
@@ -517,7 +501,7 @@ async function runRmFrRebootSimulation() {
   let overlay = null;
 
   try {
-    const wipeTargets = getWipeSequence(targetDocument);
+    const wipeTargets = getRemovableCandidates(targetDocument);
     let removedCount = 0;
     let restoredCount = 0;
 
@@ -548,7 +532,7 @@ async function runRmFrRebootSimulation() {
 
       appendOutputLine(deletedLine, "system");
 
-      await sleep(95);
+      await sleep(210);
     }
 
     const rebootOverlay = createRebootOverlay();
@@ -577,28 +561,19 @@ async function runRmFrRebootSimulation() {
 
     for (let index = removedNodes.length - 1; index >= 0; index -= 1) {
       const removedNode = removedNodes[index];
-
       if (removedNode.placeholder && removedNode.placeholder.parentNode) {
         removedNode.placeholder.parentNode.replaceChild(
           removedNode.element,
           removedNode.placeholder,
         );
         restoredCount += 1;
-      } else if (!removedNode.element.isConnected) {
-        targetDocument.body.appendChild(removedNode.element);
-        restoredCount += 1;
       }
     }
 
-    if (restoredCount < removedCount) {
-      for (const removedNode of removedNodes) {
-        if (removedNode.element.isConnected) {
-          continue;
-        }
-
-        targetDocument.body.appendChild(removedNode.element);
-        restoredCount += 1;
-      }
+    for (const removedNode of removedNodes) {
+      if (removedNode.element.isConnected) continue;
+      targetDocument.body.appendChild(removedNode.element);
+      restoredCount += 1;
     }
 
     dispatchRebootRestoredEvent(targetDocument);
