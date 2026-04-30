@@ -22,7 +22,7 @@
   "header.education.item2": "<strong>BTS SIO option SLAM</strong> — Lycée Franklin Roosevelt, Reims<br><i>Formation aux Services Informatiques aux Organisation (SIO) et aux métiers de l'informatique. Option suivie durant le BTS : Solutions Logicielles et Applications Métiers (SLAM).</i>",
   "header.education.item3": "<strong>Certifications</strong> — PIX & Cambridge [B2]<br><i>Validation de compétences numériques et linguistiques.</i>",
   "projects.title": "Projets",
-  "projects.intro": "Quelques réalisations qui montrent ma façon de concevoir des interfaces modernes et des applications utiles, du front-end immersif à des outils métier.",
+  "projects.intro": "Quelques réalisations qui montrent ma façon de concevoir des interfaces modernes pour des applications utiles et des outils métier.",
   "project.portfolio.title": "Portfolio",
   "project.portfolio.desc": "Site personnel, présentation de mes compétences, projets et parcours, avec navigation responsive et UI moderne.",
   "project.meta.stack": "Stack:",
