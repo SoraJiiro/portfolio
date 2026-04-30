@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PorteFolio - Kheir-eddine Abdellah</title>
+        <meta name="description"
+            content="Portfolio de Kheir-eddine Abdellah, developpeur web passionne. Decouvrez mes projets, mes competences et mes moyens de contact.">
+        <meta name="author" content="Kheir-eddine Abdellah">
+        <meta name="robots" content="index,follow">
+        <meta name="theme-color" content="#101312">
+        <meta name="theme-color" media="(prefers-color-scheme: light)"
+            content="#f4f8ff">
+        <meta property="og:locale" content="fr_FR">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="PorteFolio K.A.">
+        <meta property="og:title"
+            content="PorteFolio - Kheir-eddine Abdellah">
+        <meta property="og:description"
+            content="Portfolio de Kheir-eddine Abdellah, developpeur web passionne. Decouvrez mes projets, mes competences et mes moyens de contact.">
+        <meta property="og:image" content="media/icon.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta property="og:image:alt"
+            content="Icone">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title"
+            content="PorteFolio - Kheir-eddine Abdellah">
+        <meta name="twitter:description"
+            content="Portfolio de Kheir-eddine Abdellah, developpeur web passionne. Decouvrez mes projets, mes competences et mes moyens de contact.">
+        <meta name="twitter:image" content="media/icon.png">
+        <meta name="twitter:image:alt"
+            content="Icone">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://kit.fontawesome.com">
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/terminal.css">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Do+Hyeon&display=swap">
+        <script src="https://kit.fontawesome.com/9a6b0f1631.js"
+            crossorigin="anonymous" defer></script>
+        <link rel="icon" type="image/png" href="media/icon.png">
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "name": "Kheir-eddine Abdellah",
+                  "jobTitle": "Développeur web",
+                  "description": "Portfolio de Kheir-eddine Abdellah, développeur web passionné.",
+                  "email": "mailto:kheireddine.abdellah51@gmail.com",
+                  "sameAs": [
+                    "https://github.com/SoraJiiro"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "name": "PorteFolio K.A.",
+                  "description": "Portfolio de Kheir-eddine Abdellah, développeur web passionné."
+                }
+              ]
+            }
+        </script>
+
+    </head>
+    <body>
+        <canvas id="particles-bg"></canvas>
+        <div class="site-fade" id="site-fade">
+            <header class="main-nav">
+                <nav>
+                    <div class="logo">PorteFolio K.A.</div>
+                    <button type="button" class="nav-toggle-btn"
+                        aria-label="Ouvrir ou fermer le menu"
+                        data-i18n-aria-label="nav.menuToggleLabel"
+                        aria-controls="main-menu"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-bars nav-icon-open"
+                            aria-hidden="true"></i>
+                        <i class="fa-solid fa-xmark nav-icon-close"
+                            aria-hidden="true"></i>
+                    </button>
+                    <ul id="main-menu">
+                        <li class="nav-link-item"><a href="#header"
+                                data-i18n="nav.presentation">Présentation</a></li>
+                        <li class="nav-link-item"><a href="#projets"
+                                data-i18n="nav.projects">Projets</a></li>
+                        <li class="nav-link-item"><a href="#loisirs"
+                                data-i18n="nav.hobbies">Loisirs</a></li>
+                        <li class="nav-link-item"><a href="#contacts"
+                                data-i18n="nav.contact">Contact</a></li>
+                        <li class="language-toggle-item">
+                            <button type="button" id="language-toggle-btn"
+                                class="language-toggle-btn"
+                                data-language-toggle
+                                aria-label="Passer en anglais"
+                                title="Passer en anglais">FR / EN</button>
+                        </li>
+                        <li class="theme-toggle-item">
+                            <button type="button" id="theme-toggle-btn"
+                                class="theme-toggle-btn" data-theme-toggle
+                                aria-pressed="false"
+                                aria-label="Activer le mode clair">
+                                <i class="theme-icon-sun"
+                                    aria-hidden="true"
+                                    style="font-style: normal; font-size: x-large;">☀︎</i>
+                                <i class="fa-solid fa-moon theme-icon-moon"
+                                    aria-hidden="true"></i>
+                                <span class="sr-only"
+                                    data-i18n="theme.srOnly">Changer de
+                                    thème</span>
+                            </button>
+                        </li>
+                        <li class="console-open-item">
+                            <button type="button"
+                                class="header-console-btn"
+                                data-console-open
+                                aria-label="Console"
+                                title="Console">
+                                <i class="fa-solid fa-terminal"
+                                    aria-hidden="true"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="header" id="header">
+                <div class="presentation">
+                    <div class="title">
+                        <i class="card-icon fa-solid fa-circle-user"></i>
+                        <h1
+                            data-i18n="header.presentation.title">Presentation</h1>
+                    </div>
+                    <hr class="separator">
+                    <p data-i18n-html="header.presentation.body">
+                        Bonjour, je suis Kheir-eddine Abdellah. <br>
+                        Je suis un developpeur web francais passionne, je
+                        conçois et developpe des experiences numeriques
+                        modernes, fluides et immersives. J'accorde une
+                        attention particuliere aux details, a l'ergonomie et a
+                        l'originalite afin de proposer des interfaces a la
+                        fois esthetiques et
+                        performantes.
+                    </p>
+                </div>
+
+                <div class="skills">
+                    <div class="title">
+                        <i class="card-icon fa-solid fa-wrench"></i>
+                        <h1 data-i18n="header.skills.title">Competences</h1>
+                    </div>
+                    <hr class="separator">
+                    <p style="margin-bottom: 1.5em;">
+                        <span data-i18n-html="header.skills.body1.prefix">Je me
+                            spécialise dans le développement web et
+                            applicatif, avec une
+                            base solide en front-end et en logique
+                            applicative. J'aime construire des interfaces
+                            claires, fluides et agreables a utiliser, tout en
+                            gardant un code propre, lisible et maintenable. Je
+                            porte aussi une attention constante a l'experience
+                            utilisateur, a la coherence visuelle et aux
+                            performances globales, notamment avec</span>
+                        <span id="langages"></span>
+                    </p>
+                    <p>
+                        <span data-i18n-html="header.skills.body2.prefix">Côté
+                            outils, je m'appuie sur un workflow simple et
+                            efficace pour coder, tester, versionner et faire
+                            evoluer mes projets de facon reguliere. Je
+                            documente mes avancees, organise mes taches
+                            proprement et valide mes modifications pour livrer
+                            des resultats fiables, notamment</span>
+                        <span id="tools"></span>
+                    </p>
+                </div>
+
+                <div class="etudes">
+                    <div class="title">
+                        <i class="card-icon fa-solid fa-graduation-cap"></i>
+                        <h1 data-i18n="header.education.title">Etudes &
+                            Diplomes</h1>
+                    </div>
+                    <hr class="separator">
+                    <ul>
+                        <li data-i18n-html="header.education.item1">
+                            <strong>BAC général</strong> — Lycée Hugues
+                            Libergier, Reims<br>
+                            <i>Formation générale avec acquisition de solides
+                                bases analytiques et méthodologiques.
+                                Spécialités étudiées en classe de
+                                1<sup>ère</sup> et Terminale : Numériques
+                                Sciences Informatiques (NSI) et Anglais Monde
+                                Contemporain (AMC).</i>
+                        </li>
+                        <li data-i18n-html="header.education.item2">
+                            <strong>BTS SIO option SLAM</strong> — Lycée
+                            Franklin Roosevelt, Reims<br>
+                            <i>Formation aux Services Informatiques aux
+                                Organisation (SIO) et aux métiers de
+                                l'informatique. Option suivie durant le BTS :
+                                Solutions Logicielles et Applications Métiers
+                                (SLAM).</i>
+                        </li>
+                        <li data-i18n-html="header.education.item3">
+                            <strong>Certifications</strong> — PIX & Cambridge
+                            [B2]<br>
+                            <i>Validation de compétences numériques et
+                                linguistiques.</i>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="projets content-section" id="projets">
+                <div class="section-heading">
+                    <div class="title">
+                        <i class="card-icon fa-solid fa-diagram-project"></i>
+                        <h1 data-i18n="projects.title">Projets</h1>
+                    </div>
+                    <hr class="separator">
+                    <p data-i18n-html="projects.intro">
+                        Quelques réalisations qui montrent ma façon de concevoir
+                        des interfaces
+                        modernes et des applications utiles, du front-end
+                        immersif à des outils métier.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card project-card-nsi">
+                        <div class="project-card-content">
+                            <h3 class="project-title">
+                                <a class="project-title-link"
+                                    href="https://miraucourt.alwaysdata.net/WebRadioNSI"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    data-i18n="project.nsi.title">WebRadio
+                                    NSI</a>
+                                <a class="project-title-icon"
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Ouvrir GitHub"
+                                    data-i18n-aria-label="project.openGithub"
+                                    title="Ouvrir GitHub"
+                                    data-i18n-title="project.openGithub">
+                                    <i class="fa-brands fa-github"
+                                        aria-hidden="true"></i>
+                                </a>
+                            </h3>
+                            <p data-i18n-html="project.nsi.desc">
+                                Site web regroupant les projets de podcasts de
+                                la classe de la spécialité NSI (Numérique
+                                Sciences Informatiques) du <a
+                                    href="https://lyc-libergier.monbureaunumerique.fr/"
+                                    target="_blank"
+                                    rel="noopener noreferrer">Lycée Hugues
+                                    Libergier</a>.
+                            </p>
+                            <p class="project-meta">
+                                <span class="meta-label"
+                                    data-i18n="project.meta.stack">Stack:</span>
+                                <span class="chip-list">
+                                    <span class="tech-chip">HTML</span>
+                                    <span class="tech-chip">CSS</span>
+                                    <span class="tech-chip">JavaScript</span>
+                                </span>
+                            </p>
+                            <p class="project-tools">
+                                <span class="meta-label"
+                                    data-i18n="project.meta.tools">Outils:</span>
+                                <span class="chip-list">
+                                    <span class="tech-chip">VS Code</span>
+                                    <span class="tech-chip">Git</span>
+                                </span>
+                            </p>
+                        </div>
+                        <p class="project-year">2023-2025</p>
+                    </article>
+                    <article class="project-card project-card-wiki">
+                        <div class="project-card-content">
+                            <h3 class="project-title">
+                                <a class="project-title-link"
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    data-i18n="project.wiki.title">Rainbow6Wiki</a>
+                                <a class="project-title-icon"
+                                    href="https://github.com/SoraJiiro/Rainbow6Wiki"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Ouvrir GitHub"
+                                    data-i18n-aria-label="project.openGithub"
+                                    title="Ouvrir GitHub"
+                                    data-i18n-title="project.openGithub">
+                                    <i class="fa-brands fa-github"
+                                        aria-hidden="true"></i>
+                                </a>
+                            </h3>
+                            <p data-i18n-html="project.wiki.desc">
+                                Wiki thématique orienté contenu et recherche
+                                rapide,
+                                avec une mise en
+                                page lisible, des fiches structurées et une
+                                architecture pensée pour évoluer.
+                            </p>
+                            <p class="project-meta">
+                                <span class="meta-label"
+                                    data-i18n="project.meta.stack">Stack:</span>
+                                <span class="chip-list">
+                                    <span class="tech-chip">HTML</span>
+                                    <span class="tech-chip">CSS</span>
+                                    <span class="tech-chip">JavaScript</span>
+                                    <span class="tech-chip">JSON</span>
+                                </span>
+                            </p>
+                            <p class="project-tools">
+                                <span class="meta-label"
+                                    data-i18n="project.meta.tools">Outils:</span>
+                                <span class="chip-list">
+                                    <span class="tech-chip">VS Code</span>
+                                    <span class="tech-chip">API</span>
+                                    <span class="tech-chip">Git</span>
+
+                                </span>
+                            </p>
+                        </div>
+                        <p class="project-year">2023-2026</p>
+                    </article>
+                    <article class="project-card project-card-portfolio">
+                        <div class="project-card-content">
+                            <h3 class="project-title">
+                                <a class="project-title-link"
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    data-i18n="project.portfolio.title">Portfolio
+                                    interactif</a>
+                                <a class="project-title-icon"
+                                    href="https://github.com/SoraJiiro/PorteFolio"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Ouvrir GitHub"
+                                    data-i18n-aria-label="project.openGithub"
+                                    title="Ouvrir GitHub"
+                                    data-i18n-title="project.openGithub">
+                                    <i class="fa-brands fa-github"
+                                        aria-hidden="true"></i>
+                                </a>
+                            </h3>
+                            <p data-i18n-html="project.portfolio.desc">
+                                Site personnel avec terminal d'introduction,
+                                animations fluides,
+                                gestion du thème dark/light et navigation
+                                responsive.
+                            </p>
+                            <p class="project-meta">
+                                <span class="meta-label"
+                                    data-i18n="project.meta.stack">Stack:</span>
+                                <span class="chip-list">
+                                    <span class="tech-chip">HTML</span>
+                                    <span class="tech-chip">CSS</span>
+                                    <span class="tech-chip">JavaScript</span>
+                                    <span class="tech-chip">JSON</span>
+                                </span>
+                            </p>
+                            <p class="project-tools">
+                                <span class="meta-label"
+                                    data-i18n="project.meta.tools">Outils:</span>
+                                <span class="chip-list">
+                                    <span class="tech-chip">VS Code</span>
+                                    <span class="tech-chip">Git</span>
+                                    <span class="tech-chip">I18N</span>
+                                    <span class="tech-chip">Font Awesome</span>
+                                </span>
+                            </p>
+                        </div>
+                        <p class="project-year">2026</p>
+                    </article>
+                    <article class="project-card project-card-mp3">
+                        <div class="project-card-content">
+                            <h3 class="project-title">
+                                <a class="project-title-link"
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    data-i18n="project.mp3.title">STLMP3D</a>
+                                <a class="project-title-icon"
+                                    href="https://github.com/SoraJiiro/STLMP3D"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Ouvrir GitHub"
+                                    data-i18n-aria-label="project.openGithub"
+                                    title="Ouvrir GitHub"
+                                    data-i18n-title="project.openGithub">
+                                    <i class="fa-brands fa-github"
+                                        aria-hidden="true"></i>
+                                </a>
+                            </h3>
+                            <p data-i18n-html="project.mp3.desc">
+                                Projet MP3 avec une interface claire et des
+                                fonctionnalites audio, pense pour un usage
+                                simple et direct.
+                            </p>
+                            <p class="project-meta">
+                                <span class="meta-label"
+                                    data-i18n="project.meta.stack">Stack:</span>
+                                <span class="chip-list">
+                                    <span class="tech-chip">HTML</span>
+                                    <span class="tech-chip">CSS</span>
+                                    <span class="tech-chip">JavaScript</span>
+                                    <span class="tech-chip">Python</span>
+                                </span>
+                            </p>
+                            <p class="project-tools">
+                                <span class="meta-label"
+                                    data-i18n="project.meta.tools">Outils:</span>
+                                <span class="chip-list">
+                                    <span class="tech-chip">VS Code</span>
+                                    <span class="tech-chip">Git</span>
+                                    <span class="tech-chip">FFMPEG</span>
+                                    <span class="tech-chip">FFPROBE</span>
+                                    <span class="tech-chip">Font Awesome</span>
+                                    <span class="tech-chip">Flask</span>
+                                </span>
+                            </p>
+                        </div>
+                        <p class="project-year">2026</p>
+                    </article>
+                    <article class="project-card project-card-svt">
+                        <div class="project-card-content">
+                            <h3 class="project-title">
+                                <a class="project-title-link"
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    data-i18n="project.svt.title">SVT</a>
+                                <a class="project-title-icon"
+                                    href="https://github.com/SoraJiiro/SVT"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Ouvrir GitHub"
+                                    data-i18n-aria-label="project.openGithub"
+                                    title="Ouvrir GitHub"
+                                    data-i18n-title="project.openGithub">
+                                    <i class="fa-brands fa-github"
+                                        aria-hidden="true"></i>
+                                </a>
+                            </h3>
+                            <p data-i18n-html="project.svt.desc">
+                                Projet SVT centre sur la mise en page de
+                                contenus et une navigation fluide.
+                            </p>
+                            <p class="project-meta">
+                                <span class="meta-label"
+                                    data-i18n="project.meta.stack">Stack:</span>
+                                <span class="chip-list">
+                                    <span class="tech-chip">HTML</span>
+                                    <span class="tech-chip">CSS</span>
+                                    <span class="tech-chip">JavaScript</span>
+                                    <span class="tech-chip">Python</span>
+                                </span>
+                            </p>
+                            <p class="project-tools">
+                                <span class="meta-label"
+                                    data-i18n="project.meta.tools">Outils:</span>
+                                <span class="chip-list">
+                                    <span class="tech-chip">VS Code</span>
+                                    <span class="tech-chip">Git</span>
+                                    <span class="tech-chip">FFMPEG</span>
+                                    <span class="tech-chip">Font Awesome</span>
+                                    <span class="tech-chip">Flask</span>
+                                </span>
+                            </p>
+                        </div>
+                        <p class="project-year">2026</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="loisirs content-section" id="loisirs">
+                <div class="section-heading">
+                    <div class="title">
+                        <i class="card-icon fa-solid fa-gamepad"></i>
+                        <h1 data-i18n="hobbies.title">Loisirs</h1>
+                    </div>
+                    <hr class="separator">
+                    <p data-i18n-html="hobbies.intro">
+                        En dehors du code, je cultive des activites qui
+                        nourrissent ma creativite,
+                        ma rigueur et mon sens du detail dans les projets
+                        numeriques.
+                    </p>
+                </div>
+
+                <div class="hobbies-grid">
+                    <article class="hobby-card">
+                        <h3 data-i18n="hobby.watch.title">Dessin
+                            (traditionnel &amp; digital)</h3>
+                        <p data-i18n-html="hobby.watch.desc">
+                            Je pratique le dessin sur papier et en digital.
+                            Cela m'aide a travailler la composition, le sens du
+                            detail et la creativite que je reutilise dans mes
+                            interfaces.
+                        </p>
+                    </article>
+
+                    <article class="hobby-card">
+                        <h3 data-i18n="hobby.gaming.title">Jeux de
+                            rythme</h3>
+                        <p data-i18n-html="hobby.gaming.desc">
+                            Je joue a des jeux de rythme comme Guitar Hero ou
+                            Rock Band. Ce type de jeu renforce ma
+                            concentration, ma coordination et ma regularite.
+                        </p>
+                    </article>
+
+                    <article class="hobby-card">
+                        <h3 data-i18n="hobby.design.title">Design et
+                            interfaces</h3>
+                        <p data-i18n-html="hobby.design.desc">
+                            J'aime explorer des references visuelles, creer des
+                            compositions et
+                            tester des idees d'interaction pour enrichir mes
+                            interfaces.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="contacts content-section" id="contacts">
+                <div class="section-heading">
+                    <div class="title">
+                        <i class="card-icon fa-solid fa-address-card"></i>
+                        <h1 data-i18n="contact.title">Contact</h1>
+                    </div>
+                    <hr class="separator">
+                    <p data-i18n-html="contact.intro">
+                        Vous avez une idée de projet ou une opportunité à
+                        proposer?
+                        Je suis disponible pour échanger.
+                    </p>
+                </div>
+
+                <div class="contacts-grid">
+                    <article class="contact-card">
+                        <h3 class="contact-title"><i
+                                class="fa-solid fa-envelope"
+                                aria-hidden="true"></i><span
+                                data-i18n="contact.email.title">Email</span></h3>
+                        <p data-i18n-html="contact.email.desc">Pour toute
+                            demande professionnelle ou
+                            collaboration.</p>
+                        <a class="contact-link"
+                            href="mailto:contact@kheir-abdellah.dev"
+                            data-social-id="email"><i
+                                class="fa-solid fa-at"
+                                aria-hidden="true"></i><span
+                                data-social-display>contact@kheir-abdellah.dev</span></a>
+                    </article>
+
+                    <article class="contact-card">
+                        <h3 class="contact-title"><i class="fa-brands fa-github"
+                                aria-hidden="true"></i><span
+                                data-i18n="contact.github.title">GitHub</span></h3>
+                        <p data-i18n-html="contact.github.desc">Consultez mes
+                            projets et expérimentations
+                            techniques.</p>
+                        <a class="contact-link" href="https://github.com"
+                            data-social-id="github"
+                            target="_blank" rel="noopener noreferrer"><i
+                                class="fa-solid fa-arrow-up-right-from-square"
+                                aria-hidden="true"></i><span
+                                data-social-display
+                                data-i18n="contact.github.link">Accéder au
+                                GitHub</span></a>
+                    </article>
+                </div>
+                <hr>
+            </section>
+            <footer class="site-footer" id="footer">
+                <div class="footer-inner">
+                    <div class="footer-brand">
+                        <p class="footer-logo">PorteFolio K.A.</p>
+                        <hr class="separator">
+                        <p class="footer-text"
+                            data-i18n-html="footer.brandText">
+                            Developpeur web et applicatif. Je cree des
+                            experiences numeriques modernes,
+                            performantes et orientees utilisateur.
+                        </p>
+                    </div>
+
+                    <section class="footer-cols">
+                        <div class="footer-nav">
+                            <p class="footer-title"
+                                data-i18n="footer.title.navigation">Navigation</p>
+                            <ul>
+                                <li><a href="#header"
+                                        data-i18n="footer.nav.presentation">Presentation</a></li>
+                                <li><a href="#projets"
+                                        data-i18n="footer.nav.projects">Projets</a></li>
+                                <li><a href="#loisirs"
+                                        data-i18n="footer.nav.hobbies">Loisirs</a></li>
+                                <li><a href="#contacts"
+                                        data-i18n="footer.nav.contact">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-links">
+                            <p class="footer-title"
+                                data-i18n="footer.title.networks">Reseaux</p>
+                            <ul data-socials-list>
+                            </ul>
+                        </div>
+
+                        <div class="footer-options">
+                            <p class="footer-title"
+                                data-i18n="footer.title.options">Options</p>
+                            <ul>
+                                <li>
+                                    <button type="button"
+                                        class="footer-action-btn footer-theme-toggle"
+                                        data-theme-toggle aria-pressed="false"
+                                        aria-label="Activer le mode clair">
+                                        Activer le mode clair
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button"
+                                        class="footer-action-btn footer-language-toggle"
+                                        data-language-toggle
+                                        aria-label="Passer en anglais"
+                                        title="Passer en anglais">FR /
+                                        EN</button>
+                                </li>
+                                <li>
+                                    <button type="button"
+                                        class="footer-action-btn"
+                                        id="terminal-reset-btn">
+                                        Desactiver l'intro terminal
+                                    </button>
+                                </li>
+                                <li><button type="button"
+                                        class="footer-action-btn footer-console-btn"
+                                        data-console-open
+                                        data-i18n="footer.console">Console</button></li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+
+                <p class="footer-copy" data-i18n-html="footer.copy">© 2026
+                    Kheir-eddine Abdellah. Tous droits
+                    reserves.</p>
+            </footer>
+        </div>
+        <button type="button" class="scrollback-btn" id="scrollback-btn"
+            aria-label="Retour en haut de la page"
+            data-i18n-aria-label="scrollback.label"
+            title="Retour en haut"
+            data-i18n-title="scrollback.label">
+            <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+        </button>
+
+        <button type="button" class="console-restore-btn"
+            id="console-restore-btn" hidden
+            aria-label="Console" data-i18n-aria-label="footer.console"
+            title="Console" data-i18n-title="footer.console">
+            <span data-i18n="footer.console">Console</span>
+        </button>
+
+        <div class="console-window-layer" id="console-window-layer" hidden>
+            <div class="console-window" id="console-window" role="dialog"
+                aria-label="Fenetre console interactive"
+                data-i18n-aria-label="console.windowLabel">
+                <div class="console-window-resize-handle handle-n"
+                    data-resize-handle="n" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-e"
+                    data-resize-handle="e" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-s"
+                    data-resize-handle="s" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-w"
+                    data-resize-handle="w" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-ne"
+                    data-resize-handle="ne" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-se"
+                    data-resize-handle="se" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-sw"
+                    data-resize-handle="sw" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-nw"
+                    data-resize-handle="nw" aria-hidden="true"></div>
+                <iframe class="console-window-iframe"
+                    id="console-window-iframe"
+                    title="Console interactive"
+                    data-i18n-title="console.windowLabel"
+                    src="about:blank"
+                    loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <script src="scripts/ui/particles.js" defer></script>
+        <script src="scripts/ui/terminal.js" defer></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+            defer></script>
+        <script src="scripts/ui/animations.js" defer></script>
+        <script type="module" src="scripts/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,467 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --bg: #101312;
+  --text: #39ff14;
+  --text-muted: #baff8a;
+  --accent-border: #39ff1455;
+  --accent-border-soft: #39ff1440;
+  --card-from: #1a2420bb;
+  --card-to: #0f1613aa;
+  --card-shadow: rgba(57, 255, 20, 0.11);
+  --text-glow-soft: #39ff1444;
+  --text-glow-mid: #39ff1466;
+  --console-header-bg: #222;
+  --console-action-fg: #a5a5a5;
+  --console-action-bg: #1b1b1b;
+  --console-action-border: #3a3a3a;
+  --console-action-fg-hover: #f1f1f1;
+  --console-action-bg-hover: #282828;
+  --console-action-border-hover: #636363;
+  --console-command: #ffffff;
+  --console-output: #f1f1f1;
+  --console-prompt: #ffffff;
+  --console-caret: #f1f1f1;
+  --console-link: #7fb0ff;
+  --console-link-hover: #a8c9ff;
+
+  --reboot-overlay-bg: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--card-from) 85%, #000 15%) 0%,
+    color-mix(in srgb, var(--card-to) 88%, #000 12%) 100%
+  );
+  --reboot-overlay-text: var(--text);
+  --reboot-scanline-color: color-mix(in srgb, var(--text) 10%, transparent);
+  --reboot-progress-border: var(--accent-border);
+  --reboot-progress-bg: color-mix(in srgb, var(--bg) 78%, #000 22%);
+  --reboot-progress-fill-start: color-mix(
+    in srgb,
+    var(--text) 75%,
+    #1b6c2f 25%
+  );
+  --reboot-progress-fill-end: color-mix(
+    in srgb,
+    var(--text-muted) 72%,
+    #ffffff 28%
+  );
+  --reboot-lines-border: var(--accent-border-soft);
+  --reboot-lines-bg: color-mix(in srgb, var(--bg) 72%, #000 28%);
+  --reboot-lines-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--text) 14%, transparent);
+}
+
+body,
+html {
+  background: var(--bg);
+  color: var(--text-muted);
+  overflow-y: scroll;
+  font-family: "Ubuntu Mono", monospace;
+  min-height: 100%;
+  height: 100%;
+}
+
+.console {
+  height: 100%;
+  width: 100%;
+}
+
+.console .c-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 32px;
+  width: 100%;
+  background: var(--console-header-bg);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  user-select: none;
+  touch-action: none;
+  cursor: grab;
+}
+
+.console .c-header.is-dragging {
+  cursor: grabbing;
+}
+
+.console .c-header h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14pt;
+}
+
+.console .c-header ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin-right: 8px;
+}
+
+.console .c-header .c-header-action {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--console-action-fg);
+  background: var(--console-action-bg);
+  border: 1px solid var(--console-action-border);
+  border-radius: 3px;
+  font-size: 11px;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.console .c-header .c-header-action:hover,
+.console .c-header .c-header-action:focus-visible {
+  color: var(--console-action-fg-hover);
+  border-color: var(--console-action-border-hover);
+  background: var(--console-action-bg-hover);
+}
+
+.console .c-header .c-header-action:focus-visible {
+  outline: 1px solid #a9a9a9;
+  outline-offset: 1px;
+}
+
+.console .c-header .c-header-action i {
+  pointer-events: none;
+}
+
+.console .c-content {
+  padding: 2rem 0.2rem;
+}
+
+.history {
+  padding-top: 0.75rem;
+  font-size: 14pt;
+}
+
+.entry {
+  margin-bottom: 0.35rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.entry-command {
+  color: var(--console-command);
+}
+
+.entry-output {
+  color: var(--console-output);
+}
+
+.entry-system {
+  color: #9cffb8;
+  text-shadow: 0 0 8px rgba(120, 255, 160, 0.35);
+}
+
+.entry-output a {
+  color: var(--console-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.entry-output a:hover,
+.entry-output a:focus-visible {
+  color: var(--console-link-hover);
+}
+
+.cmd-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 1.2em;
+  cursor: text;
+}
+
+.cmd-prompt {
+  color: var(--console-prompt);
+  white-space: nowrap;
+}
+
+.cmd-typed {
+  min-width: 0;
+  white-space: pre;
+  color: var(--console-command);
+}
+
+.cmd-caret {
+  width: 0.58rem;
+  height: 1.1em;
+  background: var(--console-caret);
+  position: relative;
+  left: -0.5rem;
+  animation: console-caret-blink 1s steps(1, end) infinite;
+}
+
+.cmd-row:not(.is-focused) .cmd-caret {
+  animation: none;
+  opacity: 0.35;
+}
+
+@keyframes console-caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cmd-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  background: transparent;
+  border: none;
+  color: transparent;
+  caret-color: transparent;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 14pt;
+}
+
+.cmd-input:focus {
+  outline: none;
+}
+
+html.theme-light,
+body.theme-light {
+  --bg: #f4f8ff;
+  --text: #4b83e9;
+  --text-muted: #678ecf;
+  --accent-border: rgba(75, 131, 233, 0.55);
+  --accent-border-soft: rgba(75, 131, 233, 0.4);
+  --card-from: #ffffffe0;
+  --card-to: #eaf1ffe0;
+  --card-shadow: rgba(75, 131, 233, 0.12);
+  --text-glow-soft: transparent;
+  --text-glow-mid: transparent;
+
+  --reboot-overlay-bg: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--card-from) 82%, #ffffff 18%) 0%,
+    color-mix(in srgb, var(--card-to) 90%, #ffffff 10%) 100%
+  );
+  --reboot-overlay-text: var(--text);
+  --reboot-scanline-color: color-mix(in srgb, var(--text) 10%, transparent);
+  --reboot-progress-bg: color-mix(in srgb, #ffffff 82%, var(--bg) 18%);
+  --reboot-progress-fill-start: color-mix(
+    in srgb,
+    var(--text) 70%,
+    #2f7dff 30%
+  );
+  --reboot-progress-fill-end: color-mix(
+    in srgb,
+    var(--text-muted) 72%,
+    #ffffff 28%
+  );
+  --reboot-lines-bg: color-mix(in srgb, #ffffff 80%, var(--bg) 20%);
+  --console-header-bg: #cfd6e3;
+  --console-action-fg: #283446;
+  --console-action-bg: #edf1f7;
+  --console-action-border: #9aa7bd;
+  --console-action-fg-hover: #111827;
+  --console-action-bg-hover: #dbe4f2;
+  --console-action-border-hover: #55627a;
+  --console-command: #1d2f4d;
+  --console-output: #22314a;
+  --console-prompt: #1d2f4d;
+  --console-caret: #22314a;
+  --console-link: #1656b7;
+  --console-link-hover: #0f4490;
+
+  background: #eceff4;
+  color: #151a22;
+}
+
+body.theme-light .entry-system {
+  color: #1f7f32;
+  text-shadow: none;
+}
+
+body.is-rebooting .console {
+  animation: reboot-shake 0.1s steps(2, end) infinite;
+  filter: contrast(1.08) saturate(0.9) brightness(0.95);
+}
+
+.reboot-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--reboot-overlay-bg);
+  color: var(--reboot-overlay-text);
+  padding: 4rem 2rem 2.5rem;
+  font-family: "Ubuntu Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px var(--reboot-lines-border),
+    0 12px 32px var(--card-shadow);
+}
+
+.reboot-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--reboot-scanline-color) 0,
+    var(--reboot-scanline-color) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+}
+
+.reboot-title {
+  width: min(42rem, 100%);
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--text-glow-mid);
+  animation: reboot-flicker 0.9s steps(2, end) infinite;
+}
+
+.reboot-progress {
+  width: min(42rem, 100%);
+  height: 10px;
+  border: 1px solid var(--reboot-progress-border);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--reboot-progress-bg);
+}
+
+.reboot-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--reboot-progress-fill-start),
+    var(--reboot-progress-fill-end)
+  );
+  transform-origin: left center;
+  animation: reboot-progress 1.8s linear forwards;
+}
+
+.reboot-lines {
+  position: relative;
+  width: min(42rem, 100%);
+  display: grid;
+  gap: 0.45rem;
+  font-size: 1rem;
+  min-height: 8rem;
+  max-height: min(45vh, 20rem);
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--reboot-lines-border);
+  background: var(--reboot-lines-bg);
+  box-shadow: var(--reboot-lines-shadow);
+  overflow-y: auto;
+}
+
+.reboot-lines p {
+  opacity: 0;
+  animation: reboot-line 0.2s ease forwards;
+}
+
+@keyframes reboot-progress {
+  from {
+    transform: scaleX(0.02);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes reboot-line {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reboot-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes reboot-shake {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(1px, -1px);
+  }
+
+  50% {
+    transform: translate(-1px, 0);
+  }
+
+  75% {
+    transform: translate(1px, 1px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+body.console-tabbed .console {
+  height: 32px;
+  overflow: hidden;
+}
+
+body.console-tabbed .console .c-content {
+  display: none;
+}
+
+body.console-maximized {
+  overflow: hidden;
+}
+
+body.console-maximized .console {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+body.console-maximized .console .c-content {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+}

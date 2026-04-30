@@ -1,0 +1,30 @@
+{
+  "socials": [
+    {
+      "id": "github",
+      "href": "https://github.com/SoraJiiro",
+      "icon": "fa-brands fa-github",
+      "display": {
+        "fr": "Accéder au GitHub",
+        "en": "Visit GitHub"
+      },
+      "label": {
+        "fr": "GitHub",
+        "en": "GitHub"
+      }
+    },
+    {
+      "id": "email",
+      "href": "mailto:kheireddine.abdellah51@gmail.com",
+      "icon": "fa-solid fa-envelope",
+      "display": {
+        "fr": "kheireddine.abdellah51@gmail.com",
+        "en": "kheireddine.abdellah51@gmail.com"
+      },
+      "label": {
+        "fr": "Email",
+        "en": "Email"
+      }
+    }
+  ]
+}
