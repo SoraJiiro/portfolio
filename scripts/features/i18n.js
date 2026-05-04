@@ -20,6 +20,8 @@ let initializationPromise = null;
 let activeLanguage = "fr";
 let isInitialized = false;
 let isStorageSyncBound = false;
+let emailMediaQuery = null;
+let isEmailMediaQueryBound = false;
 
 function syncActiveLanguage() {
   const detectedLanguage = i18next.resolvedLanguage || i18next.language || "fr";
@@ -28,20 +30,27 @@ function syncActiveLanguage() {
 
 function checkEmailMediaQuery() {
   const emailATag = document.querySelector(".contact-link.email");
-  window.matchMedia("(max-width: 591px)").addEventListener("change", (e) => {
-    if (e.matches) {
-      if (activeLanguage === "fr") {
-        emailATag.innerHTML =
-          '<i class="fa-solid fa-at" aria-hidden="true"></i><span data-social-display="email">Contactez moi par Email!</span>';
-      } else {
-        emailATag.innerHTML =
-          '<i class="fa-solid fa-at" aria-hidden="true"></i><span data-social-display="email">E-mail me!</span>';
-      }
-    } else {
-      emailATag.innerHTML =
-        '<i class="fa-solid fa-at" aria-hidden="true"></i><span data-social-display="email">kheireddine.abdellah51@gmail.com</span>';
-    }
-  });
+  if (!emailATag) {
+    return;
+  }
+
+  if (!emailMediaQuery) {
+    emailMediaQuery = window.matchMedia("(max-width: 591px)");
+  }
+
+  const isCompactLayout = emailMediaQuery.matches;
+  const emailLabel = isCompactLayout
+    ? activeLanguage === "fr"
+      ? "Contactez moi par Email!"
+      : "E-mail me!"
+    : "kheireddine.abdellah51@gmail.com";
+
+  emailATag.innerHTML = `<i class="fa-solid fa-at" aria-hidden="true"></i><span data-social-display="email">${emailLabel}</span>`;
+
+  if (!isEmailMediaQueryBound) {
+    emailMediaQuery.addEventListener("change", checkEmailMediaQuery);
+    isEmailMediaQueryBound = true;
+  }
 }
 
 checkEmailMediaQuery();
@@ -149,8 +158,6 @@ function applyNodeTranslations(selector, attribute, setter) {
 
     setter(node, i18next.t(key));
   }
-
-  checkEmailMediaQuery();
 }
 
 function applyTextTranslations() {
@@ -161,8 +168,6 @@ function applyTextTranslations() {
   applyNodeTranslations("[data-i18n-html]", "data-i18n-html", (node, value) => {
     node.innerHTML = value;
   });
-
-  checkEmailMediaQuery();
 }
 
 function applyAttributeTranslations() {
@@ -231,6 +236,7 @@ export async function applyLanguage(language, options = {}) {
       }),
     );
   }
+
   checkEmailMediaQuery();
 }
 
@@ -267,5 +273,3 @@ export async function setupLanguageToggle() {
     });
   }
 }
-
-checkEmailMediaQuery();
