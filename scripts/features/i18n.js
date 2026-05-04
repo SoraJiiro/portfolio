@@ -26,6 +26,27 @@ function syncActiveLanguage() {
   activeLanguage = detectedLanguage.startsWith("en") ? "en" : "fr";
 }
 
+function checkEmailMediaQuery() {
+  const emailATag = document.querySelector(".contact-link.email");
+  window.matchMedia("(max-width: 591px)").addEventListener("change", (e) => {
+    if (e.matches) {
+      if (activeLanguage === "fr") {
+        emailATag.innerHTML =
+          '<i class="fa-solid fa-at" aria-hidden="true"></i><span data-social-display="email">Contactez moi par Email!</span>';
+      } else {
+        emailATag.innerHTML =
+          '<i class="fa-solid fa-at" aria-hidden="true"></i><span data-social-display="email">E-mail me!</span>';
+      }
+    } else {
+      emailATag.innerHTML =
+        '<i class="fa-solid fa-at" aria-hidden="true"></i><span data-social-display="email">kheireddine.abdellah51@gmail.com</span>';
+    }
+  });
+}
+
+checkEmailMediaQuery();
+window.addEventListener("resize", checkEmailMediaQuery);
+
 function normalizeLanguage(language) {
   return language === "en" ? "en" : "fr";
 }
@@ -128,6 +149,8 @@ function applyNodeTranslations(selector, attribute, setter) {
 
     setter(node, i18next.t(key));
   }
+
+  checkEmailMediaQuery();
 }
 
 function applyTextTranslations() {
@@ -138,6 +161,8 @@ function applyTextTranslations() {
   applyNodeTranslations("[data-i18n-html]", "data-i18n-html", (node, value) => {
     node.innerHTML = value;
   });
+
+  checkEmailMediaQuery();
 }
 
 function applyAttributeTranslations() {
@@ -206,6 +231,7 @@ export async function applyLanguage(language, options = {}) {
       }),
     );
   }
+  checkEmailMediaQuery();
 }
 
 export async function setupLanguageToggle() {
@@ -241,3 +267,5 @@ export async function setupLanguageToggle() {
     });
   }
 }
+
+checkEmailMediaQuery();

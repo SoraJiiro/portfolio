@@ -1696,6 +1696,12 @@ body.theme-light .hobby-card::before {
   }
 }
 
+@media (max-width: 640px) {
+  .contact-link.email {
+    font-size: clamp(0.86rem, 0.3vw + 0.78rem, 0.98rem);
+  }
+}
+
 @media (max-width: 700px) {
   .console-window {
     min-width: 0;
