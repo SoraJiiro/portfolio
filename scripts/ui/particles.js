@@ -25,6 +25,7 @@
 
   let viewportWidth = window.innerWidth;
   let viewportHeight = window.innerHeight;
+  let lastRecordedWidth = viewportWidth;
   let particles = [];
   let targetParticleCount = BASE_PARTICLE_COUNT;
   let connectionDistance = DEFAULT_CONNECTION_DISTANCE;
@@ -32,6 +33,7 @@
   let particleLineColor = "rgba(57,255,20,0.13)";
   let resizeTimeoutId = null;
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+  const MIN_WIDTH_CHANGE_THRESHOLD = 10;
 
   function resizeCanvas() {
     viewportWidth = window.innerWidth;
@@ -118,6 +120,15 @@
   }
 
   function handleWindowResize() {
+    const newWidth = window.innerWidth;
+    const widthChange = Math.abs(newWidth - lastRecordedWidth);
+
+    // Ne régénérer que si la largeur a vraiment changé (pour ignorer les changements de DVH)
+    if (widthChange < MIN_WIDTH_CHANGE_THRESHOLD) {
+      return;
+    }
+
+    lastRecordedWidth = newWidth;
     resizeCanvas();
     scheduleParticlesRegeneration();
   }
