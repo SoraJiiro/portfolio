@@ -233,7 +233,10 @@ function bindLanguageToggleViewportSync() {
     return;
   }
 
-  languageCompactMediaQuery.addEventListener("change", updateLanguageToggleButtons);
+  languageCompactMediaQuery.addEventListener(
+    "change",
+    updateLanguageToggleButtons,
+  );
   isLanguageCompactMediaQueryBound = true;
 }
 
