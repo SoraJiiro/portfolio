@@ -619,6 +619,7 @@ const commandDocs = {
   echo: "console.echo.desc",
   repo: "console.repo.desc",
   projects: "console.projects.desc",
+  stage: "console.stage.desc",
   contact: "console.contact.desc",
   lang: "console.lang.desc",
   mode: "console.mode.desc",
@@ -737,6 +738,15 @@ const commandHandlers = {
       title: i18next.t(selectedProject.titleKey),
       url: selectedProject.url,
     });
+  },
+
+  stage(args) {
+    if (args.length > 0) {
+      return i18next.t("console.generic.noArgsUsage", { command: "stage" });
+    }
+
+    window.open("stage.html", "_blank", "noopener,noreferrer");
+    return i18next.t("console.stage.opening");
   },
 
   contact(args) {

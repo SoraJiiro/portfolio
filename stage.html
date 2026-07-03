@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title data-i18n="stage.pageTitle">Stage - PorteFolio K.A.</title>
+        <meta name="description" data-i18n-content="stage.metaDescription"
+            content="Page dédiée au stage avec un récit prêt à utiliser pour présenter mon expérience professionnelle.">
+        <meta name="author" content="Kheir-eddine Abdellah">
+        <meta name="theme-color" content="#101312">
+        <meta name="theme-color" media="(prefers-color-scheme: light)"
+            content="#f4f8ff">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://kit.fontawesome.com">
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/terminal.css">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Do+Hyeon&display=swap">
+        <script src="https://kit.fontawesome.com/9a6b0f1631.js"
+            crossorigin="anonymous" defer></script>
+        <link rel="icon" type="image/png" href="media/icon.png">
+    </head>
+    <body>
+        <canvas id="particles-bg"></canvas>
+        <div class="site-fade visible" id="site-fade">
+            <header class="main-nav">
+                <nav>
+                    <div class="logo">PorteFolio K.A.</div>
+                    <button type="button" class="nav-toggle-btn"
+                        aria-label="Ouvrir ou fermer le menu"
+                        data-i18n-aria-label="nav.menuToggleLabel"
+                        aria-controls="main-menu"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-bars nav-icon-open"
+                            aria-hidden="true"></i>
+                        <i class="fa-solid fa-xmark nav-icon-close"
+                            aria-hidden="true"></i>
+                    </button>
+                    <ul id="main-menu">
+                        <h1>Menu ―</h1>
+                        <li class="nav-link-item"><a href="index.html#header"
+                                data-i18n="nav.presentation">Présentation</a></li>
+                        <li class="nav-link-item"><a href="index.html#projets"
+                                data-i18n="nav.projects">Projets</a></li>
+                        <li class="nav-link-item"><a href="stage.html"
+                                data-i18n="nav.stage">Stage</a></li>
+                        <li class="nav-link-item"><a href="index.html#loisirs"
+                                data-i18n="nav.hobbies">Loisirs</a></li>
+                        <li class="nav-link-item"><a href="index.html#contacts"
+                                data-i18n="nav.contact">Contact</a></li>
+                        <li class="language-toggle-item">
+                            <button type="button" id="language-toggle-btn"
+                                class="language-toggle-btn"
+                                data-language-toggle
+                                aria-label="Passer en anglais"
+                                title="Passer en anglais">FR / EN</button>
+                        </li>
+                        <li class="theme-toggle-item">
+                            <button type="button" id="theme-toggle-btn"
+                                class="theme-toggle-btn" data-theme-toggle
+                                aria-pressed="false"
+                                aria-label="Activer le mode clair">
+                                <i class="theme-icon-sun"
+                                    aria-hidden="true"
+                                    style="font-style: normal; font-size: x-large;">☀︎</i>
+                                <i class="fa-solid fa-moon theme-icon-moon"
+                                    aria-hidden="true"></i>
+                                <span class="sr-only"
+                                    data-i18n="theme.srOnly">Changer de
+                                    thème</span>
+                            </button>
+                        </li>
+                        <li class="console-open-item">
+                            <button type="button"
+                                class="header-console-btn"
+                                data-console-open
+                                aria-label="Console"
+                                title="Console">
+                                <i class="fa-solid fa-terminal"
+                                    aria-hidden="true"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <section class="header" id="stage-header">
+                    <div class="presentation">
+                        <div class="title">
+                            <i class="card-icon fa-solid fa-briefcase"></i>
+                            <h1 data-i18n="stage.title">Stage</h1>
+                        </div>
+                        <hr class="separator">
+                        <p data-i18n-html="stage.intro">
+                        </p>
+                    </div>
+
+                    <div class="skills">
+                        <div class="title">
+                            <i class="card-icon fa-solid fa-book-open"></i>
+                            <h1
+                                data-i18n="stage.presentation.title">Présentation
+                                du stage</h1>
+                        </div>
+                        <hr class="separator">
+                        <p data-i18n-html="stage.presentation.body">
+                        </p>
+                    </div>
+
+                    <div class="etudes">
+                        <div class="title">
+                            <i class="card-icon fa-solid fa-list-check"></i>
+                            <h1
+                                data-i18n="stage.projectDescription.title">Description
+                                du projet</h1>
+                        </div>
+                        <hr class="separator">
+                        <p data-i18n="stage.projectDescription.body">
+                        </p>
+                    </div>
+
+                    <div class="etudes">
+                        <div class="title">
+                            <i class="card-icon fa-solid fa-code"></i>
+                            <h1
+                                data-i18n="stage.development.title">Développement
+                                du projet</h1>
+                        </div>
+                        <hr class="separator">
+                        <ul>
+                            <li
+                                data-i18n="stage.development.nodeJs"><strong>Node.js</strong>
+                                : utilisé pour développer la partie backend du
+                                site et gérer les interactions avec le panneau
+                                d’administration, notamment pour enregistrer et
+                                afficher les données en temps réel.</li>
+                            <li
+                                data-i18n="stage.development.nginx"><strong>Nginx</strong>
+                                : utilisé comme serveur web pour diffuser le
+                                site de manière fiable et rapide auprès des
+                                visiteurs.</li>
+                            <li
+                                data-i18n="stage.development.pm2"><strong>PM2</strong>
+                                : utilisé pour maintenir l’application en ligne
+                                et la relancer automatiquement en cas de
+                                problème, ce qui facilite la gestion du
+                                déploiement.</li>
+                            <li
+                                data-i18n="stage.development.certbot"><strong>Certbot</strong>
+                                : utilisé pour sécuriser le site avec un
+                                certificat HTTPS, afin d’améliorer la confiance
+                                et la sécurité de la solution.</li>
+                            <li
+                                data-i18n="stage.development.frontend"><strong>HTML,
+                                    CSS et JavaScript</strong> : utilisés pour
+                                construire l’interface du site, mettre en forme
+                                les pages et ajouter des interactions simples
+                                mais utiles.</li>
+                        </ul>
+                    </div>
+
+                    <div class="etudes">
+                        <div class="title">
+                            <i
+                                class="card-icon fa-solid fa-clipboard-check"></i>
+                            <h1 data-i18n="stage.bilan.title">Bilan</h1>
+                        </div>
+                        <hr class="separator">
+                        <p data-i18n="stage.bilan.body">
+                        </p>
+                    </div>
+                </section>
+
+                <footer class="site-footer">
+                    <div class="footer-inner">
+                        <div class="footer-brand">
+                            <h2 class="footer-logo">PorteFolio K.A.</h2>
+                            <p class="footer-text" data-i18n="footer.brandText">
+                                Développeur web et applicatif. Je crée des
+                                expériences
+                                numériques modernes, performantes et orientées
+                                utilisateur.
+                            </p>
+                        </div>
+                        <div class="footer-cols">
+                            <div>
+                                <h3 class="footer-title"
+                                    data-i18n="footer.title.navigation">Navigation</h3>
+                                <ul class="footer-nav">
+                                    <li><a href="index.html#header"
+                                            data-i18n="footer.nav.presentation">Présentation</a></li>
+                                    <li><a href="index.html#projets"
+                                            data-i18n="footer.nav.projects">Projets</a></li>
+                                    <li><a href="stage.html"
+                                            data-i18n="footer.nav.stage">Stage</a></li>
+                                    <li><a href="index.html#contacts"
+                                            data-i18n="footer.nav.contact">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="footer-title"
+                                    data-i18n="footer.title.options">Options</h3>
+                                <ul class="footer-options">
+                                    <li><a href="#" data-console-open
+                                            data-i18n="footer.console">Console</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+            <script type="module" src="scripts/main.js"></script>
+        </body>
+    </html>
