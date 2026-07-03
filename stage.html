@@ -118,7 +118,7 @@
                                 du projet</h1>
                         </div>
                         <hr class="separator">
-                        <p data-i18n="stage.projectDescription.body">
+                        <p data-i18n-html="stage.projectDescription.body">
                         </p>
                     </div>
 
@@ -132,29 +132,29 @@
                         <hr class="separator">
                         <ul>
                             <li
-                                data-i18n="stage.development.nodeJs"><strong>Node.js</strong>
+                                data-i18n-html="stage.development.nodeJs"><strong>Node.js</strong>
                                 : utilisé pour développer la partie backend du
                                 site et gérer les interactions avec le panneau
                                 d’administration, notamment pour enregistrer et
                                 afficher les données en temps réel.</li>
                             <li
-                                data-i18n="stage.development.nginx"><strong>Nginx</strong>
+                                data-i18n-html="stage.development.nginx"><strong>Nginx</strong>
                                 : utilisé comme serveur web pour diffuser le
                                 site de manière fiable et rapide auprès des
                                 visiteurs.</li>
                             <li
-                                data-i18n="stage.development.pm2"><strong>PM2</strong>
+                                data-i18n-html="stage.development.pm2"><strong>PM2</strong>
                                 : utilisé pour maintenir l’application en ligne
                                 et la relancer automatiquement en cas de
                                 problème, ce qui facilite la gestion du
                                 déploiement.</li>
                             <li
-                                data-i18n="stage.development.certbot"><strong>Certbot</strong>
+                                data-i18n-html="stage.development.certbot"><strong>Certbot</strong>
                                 : utilisé pour sécuriser le site avec un
                                 certificat HTTPS, afin d’améliorer la confiance
                                 et la sécurité de la solution.</li>
                             <li
-                                data-i18n="stage.development.frontend"><strong>HTML,
+                                data-i18n-html="stage.development.frontend"><strong>HTML,
                                     CSS et JavaScript</strong> : utilisés pour
                                 construire l’interface du site, mettre en forme
                                 les pages et ajouter des interactions simples
@@ -169,50 +169,143 @@
                             <h1 data-i18n="stage.bilan.title">Bilan</h1>
                         </div>
                         <hr class="separator">
-                        <p data-i18n="stage.bilan.body">
+                        <p data-i18n-html="stage.bilan.body">
                         </p>
                     </div>
                 </section>
+            </main>
 
-                <footer class="site-footer">
-                    <div class="footer-inner">
-                        <div class="footer-brand">
-                            <h2 class="footer-logo">PorteFolio K.A.</h2>
-                            <p class="footer-text" data-i18n="footer.brandText">
-                                Développeur web et applicatif. Je crée des
-                                expériences
-                                numériques modernes, performantes et orientées
-                                utilisateur.
-                            </p>
-                        </div>
-                        <div class="footer-cols">
-                            <div>
-                                <h3 class="footer-title"
-                                    data-i18n="footer.title.navigation">Navigation</h3>
-                                <ul class="footer-nav">
-                                    <li><a href="index.html#header"
-                                            data-i18n="footer.nav.presentation">Présentation</a></li>
-                                    <li><a href="index.html#projets"
-                                            data-i18n="footer.nav.projects">Projets</a></li>
-                                    <li><a href="stage.html"
-                                            data-i18n="footer.nav.stage">Stage</a></li>
-                                    <li><a href="index.html#contacts"
-                                            data-i18n="footer.nav.contact">Contact</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 class="footer-title"
-                                    data-i18n="footer.title.options">Options</h3>
-                                <ul class="footer-options">
-                                    <li><a href="#" data-console-open
-                                            data-i18n="footer.console">Console</a></li>
-                                </ul>
-                            </div>
-                        </div>
+            <footer class="site-footer" id="footer">
+                <div class="footer-inner">
+                    <div class="footer-brand">
+                        <p class="footer-logo">PorteFolio K.A.</p>
+                        <hr class="separator">
+                        <p class="footer-text"
+                            data-i18n-html="footer.brandText">
+                            Developpeur web et applicatif. Je cree des
+                            experiences numeriques modernes,
+                            performantes et orientees utilisateur.
+                        </p>
                     </div>
-                </footer>
-            </div>
 
-            <script type="module" src="scripts/main.js"></script>
-        </body>
-    </html>
+                    <section class="footer-cols">
+                        <div class="footer-nav">
+                            <p class="footer-title"
+                                data-i18n="footer.title.navigation">Navigation</p>
+                            <ul>
+                                <li><a href="index.html#header"
+                                        data-i18n="footer.nav.presentation">Presentation</a></li>
+                                <li><a href="index.html#projets"
+                                        data-i18n="footer.nav.projects">Projets</a></li>
+                                <li><a href="stage.html"
+                                        data-i18n="footer.nav.stage">Stage</a></li>
+                                <li><a href="index.html#loisirs"
+                                        data-i18n="footer.nav.hobbies">Loisirs</a></li>
+                                <li><a href="index.html#contacts"
+                                        data-i18n="footer.nav.contact">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-links">
+                            <p class="footer-title"
+                                data-i18n="footer.title.networks">Reseaux</p>
+                            <ul data-socials-list>
+                            </ul>
+                        </div>
+
+                        <div class="footer-options">
+                            <p class="footer-title"
+                                data-i18n="footer.title.options">Options</p>
+                            <ul>
+                                <li>
+                                    <button type="button"
+                                        class="footer-action-btn footer-theme-toggle"
+                                        data-theme-toggle
+                                        aria-pressed="false"
+                                        aria-label="Activer le mode clair">
+                                        Activer le mode clair
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button"
+                                        class="footer-action-btn footer-language-toggle"
+                                        data-language-toggle
+                                        aria-label="Passer en anglais"
+                                        title="Passer en anglais">FR /
+                                        EN</button>
+                                </li>
+                                <li>
+                                    <button type="button"
+                                        class="footer-action-btn"
+                                        id="terminal-reset-btn">
+                                        Desactiver l'intro terminal
+                                    </button>
+                                </li>
+                                <li><button type="button"
+                                        class="footer-action-btn footer-console-btn"
+                                        data-console-open
+                                        data-i18n="footer.console">Console</button></li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+
+                <p class="footer-copy" data-i18n-html="footer.copy">© 2026
+                    Kheir-eddine Abdellah. Tous droits
+                    reserves.</p>
+            </footer>
+        </div>
+
+        <button type="button" class="scrollback-btn" id="scrollback-btn"
+            aria-label="Retour en haut de la page"
+            data-i18n-aria-label="scrollback.label"
+            title="Retour en haut"
+            data-i18n-title="scrollback.label">
+            <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+        </button>
+
+        <button type="button" class="console-restore-btn"
+            id="console-restore-btn" hidden
+            aria-label="Console" data-i18n-aria-label="footer.console"
+            title="Console" data-i18n-title="footer.console">
+            <span data-i18n="footer.console">Console</span>
+        </button>
+
+        <div class="console-window-layer" id="console-window-layer" hidden>
+            <div class="console-window" id="console-window" role="dialog"
+                aria-label="Fenetre console interactive"
+                data-i18n-aria-label="console.windowLabel">
+                <div class="console-window-resize-handle handle-n"
+                    data-resize-handle="n" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-e"
+                    data-resize-handle="e" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-s"
+                    data-resize-handle="s" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-w"
+                    data-resize-handle="w" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-ne"
+                    data-resize-handle="ne" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-se"
+                    data-resize-handle="se" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-sw"
+                    data-resize-handle="sw" aria-hidden="true"></div>
+                <div class="console-window-resize-handle handle-nw"
+                    data-resize-handle="nw" aria-hidden="true"></div>
+                <iframe class="console-window-iframe"
+                    id="console-window-iframe"
+                    title="Console interactive"
+                    data-i18n-title="console.windowLabel"
+                    src="about:blank"
+                    loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <script src="scripts/ui/particles.js" defer></script>
+        <script src="scripts/ui/terminal.js" defer></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+            defer></script>
+        <script src="scripts/ui/animations.js" defer></script>
+        <script type="module" src="scripts/main.js"></script>
+    </body>
+</html>
