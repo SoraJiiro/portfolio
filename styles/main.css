@@ -476,7 +476,7 @@ footer hr.separator {
 }
 
 .card-icon {
-  display: inline-flex;
+  display: flex;
   border: 2px solid var(--text);
   border-radius: 50%;
   background: var(--bg);
@@ -1972,4 +1972,16 @@ body.theme-light .hobby-card::before {
   object-fit: cover;
   object-position: center;
   filter: saturate(0.96) brightness(0.9);
+}
+
+.card-icon {
+  font-size: 0;
+}
+
+.card-icon i,
+.card-icon svg {
+  display: block;
+  font-size: clamp(0.95rem, 1vw + 0.55rem, 1.35rem);
+  line-height: 1;
+  color: inherit;
 }

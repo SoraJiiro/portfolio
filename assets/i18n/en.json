@@ -149,7 +149,7 @@
   "stage.development.pm2": "<strong>PM2</strong> : used to keep the application online and restart it automatically in case of an issue, which makes deployment management easier.",
   "stage.development.certbot": "<strong>Certbot</strong> : used to secure the site with an HTTPS certificate, improving the trust and security of the solution.",
   "stage.development.frontend": "<strong>HTML, CSS and JavaScript</strong> : used to build the interface, style the pages, and add simple but useful interactions.",
-  "stage.bilan.title": "Bilan",
+  "stage.bilan.title": "Final statement",
   "stage.bilan.body": "This internship was a very enriching experience, both technically and professionally. It strengthened my interest in web development, my ability to work independently, and my motivation to continue my journey with greater confidence. I was able to lead a real project from start to finish, learn to respond to real needs, and see that the work completed was appreciated by the manager, which gave me even more confidence in the quality of my work.",
   "stage.storyTitle": "Telling my internship",
   "stage.storyText": "During my internship at <strong>[Company name]</strong>, I discovered how a development team works and was able to take part in concrete missions. I learned to better organize my work, ask the right questions, and suggest simple, useful solutions that fit the project’s needs.",
