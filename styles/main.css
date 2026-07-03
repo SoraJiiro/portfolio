@@ -1985,3 +1985,7 @@ body.theme-light .hobby-card::before {
   line-height: 1;
   color: inherit;
 }
+
+footer #stg-footer strong {
+  font-weight: normal !important;
+}
