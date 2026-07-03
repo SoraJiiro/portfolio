@@ -22,6 +22,7 @@
   "header.education.item1": "<strong>General BAC</strong> — Lycée Hugues Libergier, Reims<br><i>General training with the acquisition of solid analytical and methodological bases. Specialties studied in 1st and Terminale classes: Digital and Computer Sciences (NSI) and Contemporary World English (AMC).</i>",
   "header.education.item2": "<strong>BTS SIO - SLAM track</strong> — Franklin Roosevelt High School, Reims<br><i>IT services curriculum focused on software development and business applications. Chosen track during the degree: Software Solutions and Business Applications (SLAM).</i>",
   "header.education.item3": "<strong>Certifications</strong> — PIX & Cambridge [B2]<br><i>Validation of digital and linguistic skills.</i>",
+  "header.education.stage": "<strong>Internship</strong>",
   "projects.title": "Projects",
   "projects.intro": "A selection of work that shows how I design modern interfaces for useful applications and practical business tools.",
   "project.portfolio.title": "Portfolio",

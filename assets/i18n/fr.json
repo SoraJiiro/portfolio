@@ -22,6 +22,7 @@
   "header.education.item1": "<strong>BAC général</strong> — Lycée Hugues Libergier, Reims<br><i>Formation générale avec acquisition de solides bases analytiques et méthodologiques. Spécialités étudiées en classe de 1<sup>ère</sup> et Terminale : Numériques Sciences Informatiques (NSI) et Anglais Monde Contemporain (AMC).</i>",
   "header.education.item2": "<strong>BTS SIO option SLAM</strong> — Lycée Franklin Roosevelt, Reims<br><i>Formation aux Services Informatiques aux Organisation (SIO) et aux métiers de l'informatique. Option suivie durant le BTS : Solutions Logicielles et Applications Métiers (SLAM).</i>",
   "header.education.item3": "<strong>Certifications</strong> — PIX & Cambridge [B2]<br><i>Validation de compétences numériques et linguistiques.</i>",
+  "header.education.stage": "<strong>Stage</strong>",
   "projects.title": "Projets",
   "projects.intro": "Quelques réalisations qui montrent ma façon de concevoir des interfaces modernes pour des applications utiles et des outils métier.",
   "project.portfolio.title": "Portfolio",

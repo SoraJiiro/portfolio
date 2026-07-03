@@ -59,7 +59,7 @@ body.console-fullscreen-scroll-lock {
 }
 
 ::-webkit-scrollbar-track {
-  border-left: 2px solid var(--text);
+  border-left: 2.5px solid var(--text);
 }
 
 ::-webkit-scrollbar-thumb {
