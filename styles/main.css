@@ -475,8 +475,7 @@ footer hr.separator {
   padding: 0 0 10px;
 }
 
-.header .title .card-icon,
-.section-heading .title .card-icon {
+.card-icon {
   border: 2px solid var(--text);
   border-radius: 50%;
   background: var(--bg);
@@ -1358,6 +1357,8 @@ body.theme-light .hobby-card::before {
   border-top: 1px solid var(--accent-border-soft);
   color: var(--text-muted);
   font-size: clamp(0.94rem, 0.22vw + 0.88rem, 1.04rem);
+  font-style: italic;
+  text-align: right;
 }
 
 .scrollback-btn {
@@ -1813,8 +1814,7 @@ body.theme-light .hobby-card::before {
     align-items: flex-start;
   }
 
-  .header .title .card-icon,
-  .section-heading .title .card-icon {
+  .card-icon {
     width: 32px;
     height: 32px;
     border-width: 1.5px;
@@ -1884,4 +1884,18 @@ body.theme-light .hobby-card::before {
   .console-window {
     min-width: 0;
   }
+}
+
+div.optic-site-link {
+  position: relative;
+  margin: 0 auto;
+  border: 1px solid var(--accent-border);
+  background: var(--bg);
+  color: var(--text);
+  padding: 1rem;
+  width: 45vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
 }
