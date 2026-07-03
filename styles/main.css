@@ -52,6 +52,32 @@ body.console-fullscreen-scroll-lock {
   overflow: hidden !important;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  border-left: 2px solid var(--text);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text);
+  border-radius: 0;
+  cursor: grab;
+  transition: backrgound 350ms ease;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background: var(--text-muted);
+}
+
+::-webkit-scrollbar-thumb:active {
+  cursor: grabbing;
+}
+
 #text {
   width: 100%;
   text-align: left;
@@ -159,7 +185,7 @@ body.menu-open-scroll-lock {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1100px;
+  max-width: 1325px;
   margin: 0 auto;
   padding: 0.7em 2em;
   background: var(--nav-glass);
