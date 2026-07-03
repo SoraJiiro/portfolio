@@ -1,0 +1,13 @@
+.card-icon {
+  font-size: 0;
+}
+
+.card-icon i,
+.card-icon svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  font-size: clamp(0.95rem, 1vw + 0.55rem, 1.35rem);
+  line-height: 1;
+  color: inherit;
+}
