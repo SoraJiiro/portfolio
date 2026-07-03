@@ -2,6 +2,7 @@ import i18next from "https://cdn.jsdelivr.net/npm/i18next@23.16.5/+esm";
 import LanguageDetector from "https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@8.0.0/+esm";
 
 const LANGUAGE_STORAGE_KEY = "portfolio-language";
+const LANGUAGE_COMPACT_MEDIA_QUERY = "(min-width: 795px)";
 const ATTRIBUTE_MAPPINGS = [
   { dataKey: "data-i18n-aria-label", attribute: "aria-label" },
   { dataKey: "data-i18n-title", attribute: "title" },
@@ -22,6 +23,8 @@ let isInitialized = false;
 let isStorageSyncBound = false;
 let emailMediaQuery = null;
 let isEmailMediaQueryBound = false;
+let languageCompactMediaQuery = null;
+let isLanguageCompactMediaQueryBound = false;
 
 function syncActiveLanguage() {
   const detectedLanguage = i18next.resolvedLanguage || i18next.language || "fr";
@@ -193,20 +196,45 @@ function applyMetaTranslations() {
   }
 }
 
+function shouldUseCompactLanguageToggle() {
+  if (!languageCompactMediaQuery) {
+    languageCompactMediaQuery = window.matchMedia(LANGUAGE_COMPACT_MEDIA_QUERY);
+  }
+
+  return languageCompactMediaQuery.matches;
+}
+
 function updateLanguageToggleButtons() {
   const languageToggleButtons = document.querySelectorAll(
     "[data-language-toggle]",
   );
+  const nextLanguage = activeLanguage === "fr" ? "en" : "fr";
   const switchLabel =
     activeLanguage === "fr"
       ? i18next.t("language.switchToEnglish")
       : i18next.t("language.switchToFrench");
+  const buttonText = shouldUseCompactLanguageToggle()
+    ? nextLanguage.toUpperCase()
+    : i18next.t("language.toggleText");
 
   for (const button of languageToggleButtons) {
-    button.textContent = i18next.t("language.toggleText");
+    button.textContent = buttonText;
     button.setAttribute("aria-label", switchLabel);
     button.setAttribute("title", switchLabel);
   }
+}
+
+function bindLanguageToggleViewportSync() {
+  if (!languageCompactMediaQuery) {
+    languageCompactMediaQuery = window.matchMedia(LANGUAGE_COMPACT_MEDIA_QUERY);
+  }
+
+  if (isLanguageCompactMediaQueryBound) {
+    return;
+  }
+
+  languageCompactMediaQuery.addEventListener("change", updateLanguageToggleButtons);
+  isLanguageCompactMediaQueryBound = true;
 }
 
 export async function applyLanguage(language, options = {}) {
@@ -248,6 +276,7 @@ export async function setupLanguageToggle() {
   );
 
   await applyLanguage(activeLanguage, { persist: false, emit: false });
+  bindLanguageToggleViewportSync();
 
   if (!isStorageSyncBound) {
     window.addEventListener("storage", (event) => {
